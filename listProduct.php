@@ -5,9 +5,7 @@
 
     
 		<script>
-	$( document ).ready(function(){
-            
-            
+	$( document ).ready(function(){     
 	  $( `.hidden[id="1"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
 	   // $( "table" ).hide(); // скрывыаем все элементы <p>
             $("#w1").remove();
@@ -94,13 +92,15 @@
                   }
           ?>
         </td>
-        <td>
+        <td> <a class="ajaxPOSTminus" data-contentId="<?php echo $product->PRODUCT_ID?>" href="admin.php?ID=<?php echo $product->ID?>">-</a>
           <?php if(isset ($product->PRODUCT_QUANTITY )) {
                   echo  $product->PRODUCT_QUANTITY ; 
+                 
                 } else {
                     echo "Без PRODUCT_QUANTITY ";
                   }
-          ?>
+          ?>  <button class="ajaxPOSTplus" data-contentId="<?php echo $product->ID?>" >+</button>
+            
         </td>
         <td>
           <?php if(isset ($product->DATE_CREATE)) {
@@ -111,8 +111,8 @@
           ?>
         </td>
         
-         <td >
-              <a  class="ajaxPOSTnew" id= "<?php echo $i; ?>"    
+         <td class="w<?php echo $i?>">
+              <a   class="ajaxPOSTnew" id= "<?php echo $i; ?>"    
                   href="admin.php?ID=<?php echo $product->ID?>" 
              data-contentId="<?php echo $product->ID?>">hide</a> 
              
@@ -126,7 +126,9 @@
     </tr>   
     <?php } else {continue;} } ?>
    
-    <button class = "show">Показать</button>
+    <button class = "ajaxShowNew" id= "<?php echo $i; ?>"    
+                  href="admin.php?ID=<?php echo $product->ID?>" 
+             data-contentId="<?php echo $product->ID?>">Показать</button>
 
 </table>
   <!-- <p><?php echo $results['totalRows']?> tovar<?php echo ( $results['totalRows'] != 1 ) ? 's' : '' ?> </p> -->

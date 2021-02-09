@@ -115,7 +115,7 @@
     public function updatehide() {
     // Вставляем товар
     $conn = new PDO( "mysql:host=localhost;dbname=testproduct;charset=utf8;","root","");
-     $sql = "UPDATE Products SET Hidden:=Hidden, WHERE ID= :ID";      
+     $sql = "UPDATE Products SET Hidden=:Hidden, WHERE ID= :ID";      
     $st = $conn->prepare ($sql); 
     $st->bindValue( ":Hidden", $this->Hidden , PDO::PARAM_INT); 
     $st->execute();
