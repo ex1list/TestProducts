@@ -1,12 +1,24 @@
   <?php include "header.php" ?>
 
   <head> 
-      
-      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+   
+
+    
 		<script>
 	$( document ).ready(function(){
-	  $( ".hidden[data-id="${id}"]" ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
-	    $( "table" ).hide(); // скрывыаем все элементы <p>
+            
+            
+	  $( `.hidden[id="1"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
+	   // $( "table" ).hide(); // скрывыаем все элементы <p>
+            $("#w1").remove();
+	  });
+          $( `.hidden[id="2"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
+	   // $( "table" ).hide(); // скрывыаем все элементы <p>
+            $("#w2").remove();
+	  });
+          $( `.hidden[id="3"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
+	   // $( "table" ).hide(); // скрывыаем все элементы <p>
+            $("#w3").remove();
 	  });
 	  $( ".show" ).click(function(){ // задаем функцию при нажатиии на элемент с классом show
 	    $( "table" ).show(); // отображаем все элементы <p>
@@ -18,11 +30,7 @@
                     
                       <h1>Products</h1>
   
-                    
- 
-		
- 
-                
+                                 
                 
   <table border="1">
     <tr >     
@@ -44,7 +52,7 @@
     
   
    
- <?php $i=0; foreach ($arr['Product']['results'] as $product ) { 
+ <?php $i=0;   foreach ($arr['Product']['results'] as $product ) { 
         if ($product->Hidden == 1) {  $i++; ?>
    
       <tr id="w<?php echo $i ?>"   >
@@ -103,8 +111,17 @@
           ?>
         </td>
         
-         <td>
-             <button class="hidden"  data-id= "<?php echo $i ?>">hide</button>
+         <td >
+              <a  class="ajaxPOSTnew" id= "<?php echo $i; ?>"    
+                  href="admin.php?ID=<?php echo $product->ID?>" 
+             data-contentId="<?php echo $product->ID?>">hide</a> 
+             
+                   
+                
+
+         
+            
+             
         </td>
     </tr>   
     <?php } else {continue;} } ?>

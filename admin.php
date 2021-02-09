@@ -18,7 +18,10 @@
         break;
     case 'sortTovar':
        // sortProduct();
-        break;       
+        break;  
+    case 'hide':
+   // sortProduct();
+    break;
     default:
         listProduct();
   }   
@@ -45,9 +48,9 @@
     $results = array();  
     // вывод всего товара 
     $data = CProducts::getListProducts();
-    //var_dump($data); die();
+   // var_dump($data); die();
     $arr['Product'] = $data; 
-   //var_dump($arr['Product']['results']); die();
+    //var_dump($arr['Product']['results']); die();
     // вывод количества  товара 
     $arr['totalRows'] = $data;
     require("listProduct.php");
@@ -75,6 +78,20 @@
           require("editProduct.php");
         }      
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 // Ydalenie tovarov
   function deleteTovar() {
     $data = CProducts::getTovarById((int)$_GET['tovarId']);
@@ -102,3 +119,8 @@
     //$arr['totalRows'] = $data;
     require("sortTovar.php");
 } */
+
+function hide() {
+    
+    require("listProduct.php");
+}

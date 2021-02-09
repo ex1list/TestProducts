@@ -10,6 +10,8 @@
     public $PRODUCT_QUANTITY = null;
     public $DATE_CREATE = null;
     public $Hidden = null;
+    
+
 
     public function __construct($data=array())  {
       if (isset($data['ID'])) {
@@ -47,21 +49,21 @@
     }
   // Zapis' v svoistva
   public function storeFormValues ( $params ) {
-    //var_dump( $params); die();
+     var_dump( $params); die();
     $this->__construct( $params );
   }
 
   public static function getProductById ($id) {
-    $conn = new PDO( "mysql:host=localhost;dbname=store;charset=utf8;","root","");
+    $conn = new PDO( "mysql:host=localhost;dbname=testproduct;charset=utf8;","root","");
     $sql = "SELECT * FROM Products WHERE id = :id";
     $st = $conn->prepare($sql);
-    $st->bindValue(":id", $ID, PDO::PARAM_INT);
+    $st->bindValue(":id", $id, PDO::PARAM_INT);
     $st->execute();       
     $row = $st->fetch();
     // var_dump($row); die();
     $conn = null;       
     if ($row) { 
-      return new Tovar($row);
+      return new CProducts($row);
     }    
   } 
 
@@ -108,6 +110,19 @@
     $this->ID = $conn->lastInsertId();
     $conn = null;
   }
+  
+  
+    public function updatehide() {
+    // Вставляем товар
+    $conn = new PDO( "mysql:host=localhost;dbname=testproduct;charset=utf8;","root","");
+     $sql = "UPDATE Products SET Hidden:=Hidden, WHERE ID= :ID";      
+    $st = $conn->prepare ($sql); 
+    $st->bindValue( ":Hidden", $this->Hidden , PDO::PARAM_INT); 
+    $st->execute();
+    $this->ID = $conn->lastInsertId();
+    $conn = null;
+  }
+
 
 
   public function update() {
@@ -126,6 +141,10 @@
     $conn = null;
   }
 
+  
+ 
+  
+  
   public function delete() {
     $conn = new PDO( "mysql:host=localhost;dbname=testproduct;charset=utf8;","root","");
     $st = $conn->prepare ( "DELETE FROM Products WHERE id = :id LIMIT 1" );
