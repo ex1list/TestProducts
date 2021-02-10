@@ -11,20 +11,28 @@ console.log('Привет, это страый js ))');
 
     function init_post_minus() {
             $('a.ajaxPOSTminus').one('click', function(){
-             var content = $(this).attr('data-contentId');
+             var content = $(this).attr('data-contentId'),
+                  minus = "q";
              $.ajax({
               url:'phppostajax.php', 
               dataType: 'text',
-              data: { PRODUCT_ID: content},
+              data: { ID: content, MINUS:minus},
               method: 'POST'
-        })
+        });
 
         });
     }
     
     function init_post_plus() {
         $('a.ajaxPOSTplus').one('click', function(){
-
+             var content = $(this).attr('data-contentId'),
+                 plus = 'q';
+             $.ajax({
+              url:'phppostajax.php', 
+              dataType: 'text',
+              data: { ID: content,PLUS:plus},
+              method: 'POST'
+        });
         });
     }
 
@@ -32,12 +40,12 @@ function init_post_new()
 {
     
     $('a.ajaxPOSTnew').one('click', function(){
-        var content = $(this).attr('data-contentId');
-        
+        var content = $(this).attr('data-contentId'),
+            hide = 'q';
         $.ajax({
             url:'phppostajax.php', 
             dataType: 'text',
-            data: { ID: content},
+            data: { ID:content,HIDE:hide},
             method: 'POST'
         })
         .done (function(obj){

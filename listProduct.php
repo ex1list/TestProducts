@@ -4,25 +4,7 @@
    
 
     
-		<script>
-	$( document ).ready(function(){     
-	  $( `.hidden[id="1"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
-	   // $( "table" ).hide(); // скрывыаем все элементы <p>
-            $("#w1").remove();
-	  });
-          $( `.hidden[id="2"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
-	   // $( "table" ).hide(); // скрывыаем все элементы <p>
-            $("#w2").remove();
-	  });
-          $( `.hidden[id="3"]` ).click(function(){ // задаем функцию при нажатиии на элемент с классом hide
-	   // $( "table" ).hide(); // скрывыаем все элементы <p>
-            $("#w3").remove();
-	  });
-	  $( ".show" ).click(function(){ // задаем функцию при нажатиии на элемент с классом show
-	    $( "table" ).show(); // отображаем все элементы <p>
-	  });
-	});
-		</script>
+ 
   </head> 
                 <body>     
                     
@@ -53,7 +35,7 @@
  <?php $i=0;   foreach ($arr['Product']['results'] as $product ) { 
         if ($product->Hidden == 1) {  $i++; ?>
    
-      <tr id="w<?php echo $i ?>"   >
+      <tr>
         <td> 
           <?php if(isset ($product->ID)) {
                   echo $product->ID;                        
@@ -92,14 +74,24 @@
                   }
           ?>
         </td>
-        <td> <a class="ajaxPOSTminus" data-contentId="<?php echo $product->PRODUCT_ID?>" href="admin.php?ID=<?php echo $product->ID?>">-</a>
+        <td> <a class="ajaxPOSTminus" 
+                data-contentId="<?php echo $product->ID?>"
+                id= "<?php echo $i; ?>"
+                href="admin.php?ID=<?php echo $product->ID?>">
+                -
+            </a>
           <?php if(isset ($product->PRODUCT_QUANTITY )) {
                   echo  $product->PRODUCT_QUANTITY ; 
                  
                 } else {
                     echo "Без PRODUCT_QUANTITY ";
                   }
-          ?>  <button class="ajaxPOSTplus" data-contentId="<?php echo $product->ID?>" >+</button>
+          ?>  <a class="ajaxPOSTplus"
+                  id= "<?php echo $i; ?>"
+                  data-contentId="<?php echo $product->ID?>"
+                  href="admin.php?ID=<?php echo $product->ID?>">
+              +
+          </a>
             
         </td>
         <td>
@@ -111,10 +103,10 @@
           ?>
         </td>
         
-         <td class="w<?php echo $i?>">
+         <td>
               <a   class="ajaxPOSTnew" id= "<?php echo $i; ?>"    
                   href="admin.php?ID=<?php echo $product->ID?>" 
-             data-contentId="<?php echo $product->ID?>">hide</a> 
+             data-contentId="<?php echo $product->ID?>">Скрыть</a> 
              
                    
                 

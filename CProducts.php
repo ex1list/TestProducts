@@ -67,11 +67,12 @@
     }    
   } 
 
-  public static function getListProducts($numRows=1000000, 
+  public static function getListProducts($numRows=3, 
     $categoryId=null, $order="publicationDate DESC") {
     $conn = new PDO( "mysql:host=localhost;dbname=testproduct;charset=utf8;","root","");
-    $sql = "SELECT * FROM Products ORDER BY DATE_CREATE DESC ";   
+    $sql = "SELECT * FROM Products ORDER BY DATE_CREATE DESC LIMIT :numRows ";   
     $st = $conn->prepare($sql);
+    $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
     $st->execute(); 
     $list = array();
       while ($row = $st->fetch()) {
