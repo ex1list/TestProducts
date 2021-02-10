@@ -12,16 +12,16 @@ Tables of products
         - потом разверните в ней дамп из файла `dumpstorenew.sql`
         
 ## Структура проекта:
- -CProducts.php (класс)
- -admin.php (функции)
- -config.php (конфигурационный файл)
- -listProduct.php  (страницы вывода данных)
- -header.php (подключение стилей, заголовок сайта) 
- -style.css (стили проекта)
- -`dumpstorenew.sql` (дамп базы данных)
- -jquery-3.2.1.js библиотек JQuery
- -phppostajax.php скрипт работы при POST запросе с применением технологии ajax
- -showContent.js скрипт создание POST запроса  на js
+ - CProducts.php (класс)
+ - admin.php (функции)
+ - config.php (конфигурационный файл)
+ - listProduct.php  (страницы вывода данных)
+ - header.php (подключение стилей, заголовок сайта) 
+ - style.css (стили проекта)
+ - `dumpstorenew.sql` (дамп базы данных)
+ - jquery-3.2.1.js библиотек JQuery
+ - phppostajax.php скрипт работы при POST запросе с применением технологии ajax
+ - showContent.js скрипт создание POST запроса  на js
  
  
  После указанных трёх пунктов, разверните у себя на компьютере локальных хост и в директории хоста поместите туда все файлы тестового задания.
