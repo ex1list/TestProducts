@@ -5,6 +5,9 @@
 	padding: 22px 0 0 0;  
   }
 
+  a {text-decoration:none;}
+  
+  
   h1 {
     margin-left: 25%;
 	letter-spacing:0.1em;

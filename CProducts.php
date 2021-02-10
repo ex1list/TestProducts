@@ -80,7 +80,7 @@
         $list[] = $product;
       }
      // var_dump($list);die();
-    // Получаем общее количество товара, которые соответствуют критерию
+    // Получаем общее количество продуктов
     $sql = "SELECT FOUND_ROWS() AS totalRows";
     $totalRows = $conn->query($sql)->fetch();
     $conn = null;      

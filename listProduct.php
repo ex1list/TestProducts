@@ -2,7 +2,12 @@
 
   <head> 
    
-
+   <style>  
+ a {text-decoration:none; font-size: 15px}
+ a:hover {
+  color: #FFFFFF;  
+  }
+      </style> <!-- конец внутренних стилей -->
     
  
   </head> 
@@ -74,7 +79,8 @@
                   }
           ?>
         </td>
-        <td> <a class="ajaxPOSTminus" 
+        <td> 
+            <a class="ajaxPOSTminus" 
                 data-contentId="<?php echo $product->ID?>"
                 id= "<?php echo $i; ?>"
                 href="admin.php?ID=<?php echo $product->ID?>">
@@ -86,13 +92,13 @@
                 } else {
                     echo "Без PRODUCT_QUANTITY ";
                   }
-          ?>  <a class="ajaxPOSTplus"
+          ?>  
+            <a class="ajaxPOSTplus"
                   id= "<?php echo $i; ?>"
                   data-contentId="<?php echo $product->ID?>"
                   href="admin.php?ID=<?php echo $product->ID?>">
-              +
-          </a>
-            
+                +
+            </a>     
         </td>
         <td>
           <?php if(isset ($product->DATE_CREATE)) {
@@ -105,22 +111,16 @@
         
          <td>
               <a   class="ajaxPOSTnew" id= "<?php echo $i; ?>"    
-                  href="admin.php?ID=<?php echo $product->ID?>" 
-             data-contentId="<?php echo $product->ID?>">Скрыть</a> 
-             
-                   
+                   href="admin.php?ID=<?php echo $product->ID?>" 
+                   data-contentId="<?php echo $product->ID?>">
+                      Скрыть
+              </a> 
                 
-
-         
-            
-             
         </td>
     </tr>   
     <?php } else {continue;} } ?>
    
-    <button class = "ajaxShowNew" id= "<?php echo $i; ?>"    
-                  href="admin.php?ID=<?php echo $product->ID?>" 
-             data-contentId="<?php echo $product->ID?>">Показать</button>
+
 
 </table>
   <!-- <p><?php echo $results['totalRows']?> tovar<?php echo ( $results['totalRows'] != 1 ) ? 's' : '' ?> </p> -->

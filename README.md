@@ -8,14 +8,15 @@ Tables of products
    2) Откройте проект в IDE NetBeans или SublimeText;
 
    3) Разверните дамп базы данных:
-        - сначала создайте в mysql новую базу данных с имененем `store` 
+        - сначала создайте в mysql новую базу данных с имененем `testproduct` 
         - потом разверните в ней дамп из файла `dumpstorenew.sql`
         
 ## Структура проекта:
+ -CProducts.php (класс)
  -admin.php (функции)
  -editProduct.php  (страница редактирования данных)
  -listProduct.php  (страницы вывода данных)
- -CProducts.php (класс)
+
  -header.php (подключение стилей, заголовок сайта) 
  -style.css (стили проекта)
  -config.php (конфигурационный файл)
